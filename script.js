@@ -4,8 +4,6 @@ var form = document.getElementById('todo_form');
 var list = document.getElementById('input');
  
 var myList = document.getElementById('do');
-// var theButton = document.getElementsByTagName('button')[0];
-
 
  
 	form.onsubmit = function(event) {
@@ -17,23 +15,31 @@ var myList = document.getElementById('do');
 	newItemList.appendChild(newListNode);
 	myList.appendChild(newItemList);
 
-	var removeItem = document.createTextNode('X');
+	//Creating a button to delete each item in the list
+
+	var removeItem = document.createTextNode('Done');
 	var removeButton = document.createElement('button');
 
 	removeButton.appendChild(removeItem);
 	newItemList.appendChild(removeButton);
 
+
+	// //Creating a button to delete all the items in the list
+
+	var deleteAll = document.createTextNode('DeleteAll');
+
+	//Function for removing each item in a list
+
 	removeButton.onclick = function() {
-		myList.removeChild(newItemList);
+		myList.removeChild(newItemList); //Node we are removing with the parent
+		// myList is a parent and removeItenList is the one we need to remove.
 	};
 
-//Creating an event to remove the DOM elements
-//Dynamically deletes elements form the browser
+	//Function for removing all the items in a list
 
-// deleteAll.onClick.listen((e)); {
-// todo_list.children.clear();
-//}
-
+	deleteAll.onclick = function() {
+	todo_list.remove();
+	};
 };
 
 
